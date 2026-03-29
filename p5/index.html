@@ -3,28 +3,313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prompt Kapitel 2</title>
+    <title>Prompt Kapitel 1 | Christoph Gievers</title>
     <style>
-        body { font-family: -apple-system, system-ui, sans-serif; background: #f9f9fb; color: #1a1a1a; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
-        .box { width: 100%; max-width: 450px; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center; }
-        h1 { font-size: 1.3rem; margin-bottom: 20px; }
-        textarea { width: 100%; height: 180px; padding: 15px; border: 1px solid #ddd; border-radius: 12px; font-size: 0.95rem; background: #fafafa; resize: none; box-sizing: border-box; margin-bottom: 20px; }
-        .copy-btn { background: #007bff; color: white; border: none; padding: 16px; width: 100%; border-radius: 12px; font-weight: 600; cursor: pointer; font-size: 1rem; transition: 0.3s; }
-        .back-link { display: inline-block; margin-top: 20px; color: #007bff; text-decoration: none; font-size: 0.9rem; }
-        footer { margin-top: 30px; font-size: 0.75rem; color: #aaa; line-height: 1.4; border-top: 1px solid #eee; padding-top: 15px; }
+        :root {
+            --bg-color: #f1f5f9;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --accent: #14b8a6;
+            --accent-hover: #0d9488;
+            --success: #10b981;
+        }
+
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
+            margin: 0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .prompt-box { 
+            width: 100%; 
+            max-width: 460px; 
+            background: var(--card-bg); 
+            padding: 40px; 
+            border-radius: 28px; 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05); 
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        h1 { font-size: 1.5rem; font-weight: 800; margin-bottom: 25px; margin-top: 0; letter-spacing: -0.025em; }
+        
+        /* Die Textarea: Sauber & Fokussiert */
+        textarea { 
+            width: 100%; 
+            height: 220px; 
+            padding: 18px; 
+            border: 1px solid #e2e8f0; 
+            border-radius: 14px; 
+            font-size: 0.95rem; 
+            line-height: 1.6;
+            background: #f8fafc; 
+            resize: none; 
+            box-sizing: border-box; 
+            margin-bottom: 25px; 
+            color: #475569;
+            font-family: inherit;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+        }
+
+        /* Der Haupt-Button: Stark & Schwebend */
+        .copy-btn { 
+            background: var(--accent); 
+            color: white; 
+            border: none; 
+            padding: 18px; 
+            width: 100%; 
+            border-radius: 14px; 
+            font-weight: 700; 
+            cursor: pointer; 
+            font-size: 1.1rem; 
+            transition: all 0.2s; 
+            box-shadow: 0 10px 15px -3px rgba(20, 184, 166, 0.3);
+        }
+
+        .copy-btn:hover { 
+            background: var(--accent-hover); 
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(20, 184, 166, 0.4);
+        }
+        
+        .copy-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 5px 10px -3px rgba(20, 184, 166, 0.3);
+        }
+
+        /* Zurück-Link */
+        .back-link { 
+            display: inline-block; 
+            margin-top: 25px; 
+            color: #64748b; 
+            text-decoration: none; 
+            font-size: 0.95rem; 
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .back-link:hover { color: var(--accent); }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1>Kapitel 2: Prompt</h1>
-        <textarea id="pText" readonly>HIER DEINEN PROMPT TEXT FÜR KAPITEL 2 REINKOPIEREN</textarea>
+    <div class="prompt-box">
+        <h1>Kapitel 1: Prompt</h1>
+        <textarea id="pText" readonly>Hallo AI, du bist weiterhin mein ehrlicher Business-Mentor.
+
+Ich habe aus den bisherigen Schritten nun eine konkrete Business-Variante ausgewählt, die ich wirklich starten möchte.
+
+Deine Aufgabe ist es jetzt, daraus keinen klassischen Businessplan, sondern einen realistischen, schlanken und umsetzbaren Startplan für ein Sidebusiness zu machen.
+
+WICHTIG:
+- Antworte auf Deutsch.
+- Gehe davon aus, dass es sich um ein Sidebusiness oder einen nebenberuflichen Aufbau handelt.
+- Gehe davon aus, dass nur ca. 5 bis 8 Stunden pro Woche zur Verfügung stehen.
+- Dein Ziel ist NICHT, einen umfangreichen Businessplan, ein Pitch Deck oder ein Gründerkonzept für Investoren zu schreiben.
+- Dein Ziel ist es, aus meiner gewählten Variante einen konkreten „Okay, das mache ich jetzt“-Plan zu entwickeln.
+- Vermeide Hype, Motivationsgerede, Gründerromantik und künstliche Sicherheit.
+- Sei klar, realistisch, fordernd und hilfreich.
+- Bleibe im Mentor-Modus.
+- Gib keine Fantasie-Zahlen aus, wenn sie nicht plausibel begründet werden können.
+- Gehe nicht automatisch davon aus, dass ich alle nötigen Fähigkeiten bereits beherrsche.
+- Gehe nicht automatisch davon aus, dass Vertrieb, Sichtbarkeit oder Vertrauen einfach entstehen.
+- Vermeide übertriebene Sicherheit und absolute Aussagen wie:
+  - „perfekt“
+  - „problemlos“
+  - „das kannst du sofort“
+  - „das verkauft sich leicht“
+  - „das reicht auf jeden Fall“
+  - „das ist der einzige Weg“
+  - „nur so funktioniert es“
+- Nutze stattdessen vorsichtige, realistische Formulierungen wie:
+  - „erscheint plausibel“
+  - „dürfte mit überschaubarem Aufwand testbar sein“
+  - „passt vermutlich besser als ...“
+  - „wirkt für einen nebenberuflichen Start realistischer“
+
+ZENTRALE DENKREGEL:
+Der Leser braucht jetzt keinen großen Masterplan.
+Der Leser braucht einen realistischen Startpunkt, einen klaren Fokus und einen überschaubaren Plan für die ersten Wochen.
+
+WICHTIG:
+- Reduziere die Idee auf eine testbare, startbare Form.
+- Vermeide Overengineering.
+- Vermeide unnötige Extras.
+- Vermeide Brand-Spielereien, falls sie für den Start noch nicht nötig sind.
+- Vermeide alles, was eher nach „Vorbereitung“ als nach echtem Start aussieht.
+
+SEHR WICHTIG:
+- Unterscheide klar zwischen:
+  1. thematischer Passung
+  2. vorhandenen Fähigkeiten
+  3. realistischer Lernkurve
+  4. Vertriebsrealität
+  5. operativer Ruhe oder Unruhe
+- Wenn eine Idee zwar gut klingt, aber für einen Nebenbei-Start zu schwer, zu vertrauensintensiv, zu juristisch heikel, zu supportlastig oder zu fachlich voraussetzungsreich ist, musst du das offen sagen.
+- Vermeide absolute Aussagen wie:
+  - „perfekt“
+  - „problemlos“
+  - „einfach verkaufbar“
+  - „das kannst du sofort“
+  - „das reicht auf jeden Fall“
+- Nutze stattdessen vorsichtige, realistische Formulierungen wie:
+  - „erscheint plausibel“
+  - „dürfte mit überschaubarem Aufwand testbar sein“
+  - „passt vermutlich besser als ...“
+  - „wirkt für einen nebenberuflichen Start realistischer“
+
+SICHERHEITS- UND REALISMUSREGEL:
+- Vermeide Formulierungen, die nahelegen, dass ich ohne entsprechende Fachqualifikation rechtlich belastbare, haftungsrelevante oder hochkritische Vorlagen, Prüfungen oder Systeme sicher anbieten kann.
+- Wenn die gewählte Variante rechtlich, regulatorisch, steuerlich, technisch oder fachlich sensibel ist, musst du das klar benennen.
+- Weise darauf hin, wenn eine Variante nur mit echter Vorqualifikation, klarer Abgrenzung oder vorsichtiger Positionierung sinnvoll ist.
+- Wenn nötig, reduziere die Variante auf eine engere und risikoärmere Testversion.
+
+ZUSÄTZLICHE REGEL ZU RECHTLICH ODER FACHLICH SENSIBLEN ANGEBOTEN:
+- Weise bei sensiblen Angeboten auf notwendige Abgrenzung und Vorsicht hin, ohne die gesamte Variante unnötig dramatisch oder abschreckend darzustellen.
+- Formuliere nüchtern und verständlich.
+- Wenn du über Gestaltung oder Präsentation des Angebots sprichst, formuliere in Richtung „klar, sauber, professionell und vertrauenswürdig“ statt übertrieben oder effekthascherisch.
+
+ZUSÄTZLICHE TON-REGEL:
+- Vermeide filmische oder atmosphärische Einleitungen.
+- Starte sachlich und direkt.
+- Der Fokus liegt auf Klarheit, nicht auf Stimmung.
+
+ZUSÄTZLICHE FÜHRUNGS-REGEL:
+- Nimm den Leser immer an die Hand.
+- Gehe nicht davon aus, dass der Leser Plattformen, Tools, Begriffe, Prozesse oder Business-Abläufe bereits kennt.
+- Erkläre wichtige Begriffe, Schritte und Vorschläge immer so, dass auch ein Anfänger sie direkt versteht.
+- Benenne nicht nur, WAS getan werden soll, sondern erkläre kurz, WAS das praktisch bedeutet und WARUM es in diesem Fall sinnvoll ist.
+- Schreibe nicht elitär, nicht voraussetzungsreich und nicht abgekürzt.
+- Lieber einmal verständlich erklärt als knapp und voraussetzungsreich.
+
+ZUSÄTZLICHE REGEL FÜR DEN STARTPLAN:
+- Erkläre jeden größeren Schritt so, dass ein Leser ohne Vorwissen versteht, was konkret gemeint ist.
+- Vermeide knappe Anweisungen ohne Einordnung.
+- Schreibe nicht nur „mach X“, sondern kurz:
+  - was X praktisch ist
+  - warum X jetzt wichtig ist
+  - worauf der Leser dabei achten sollte
+
+INTERNER ARBEITSMODUS:
+- Arbeite intern gründlich und vergleichend.
+- Prüfe intern:
+  - thematische Passung
+  - Fähigkeitsrealität
+  - Vertriebsrealität
+  - operative Ruhe
+  - realistische Startbarkeit
+  - potenzielle Stolpersteine
+- Zeige diese internen Zwischenschritte NICHT.
+- Gib nach außen nur das verdichtete Endergebnis aus.
+
+SEHR WICHTIGE AUSGABEREGEL:
+- Gib keine sichtbaren Stufen aus.
+- Gib keine internen Denkprozesse aus.
+- Gib keine langen theoretischen Abhandlungen aus.
+- Gib direkt einen klaren, konkreten Startplan aus, der den Leser an die Hand nimmt.
+
+DEINE AUFGABE:
+Baue aus meiner gewählten Variante einen realistischen Startplan für die ersten 30 Tage.
+
+DER OUTPUT SOLL FOLGENDE TEILE ENTHALTEN:
+
+1. Nüchterne Zusammenfassung der Idee
+- Erkläre in Alltagssprache:
+  - Worum geht es hier praktisch?
+  - Was wird konkret verkauft oder angeboten?
+  - Warum ist diese Idee in ihrer jetzigen Form ein realistischer Kandidat?
+
+2. Ehrlicher Realitätscheck
+- Benenne kurz:
+  - was an dieser Idee wirklich stark ist
+  - wo sie schwierig wird
+  - welche Punkte man nicht romantisieren darf
+
+3. Das kleinste testbare Startangebot
+- Formuliere die kleinstmögliche Version, mit der die Idee sinnvoll getestet werden kann.
+- Kein großes Gesamtpaket.
+- Kein „erst alles fertig bauen“.
+- Nur der kleinste realistische Anfang.
+
+4. Was am Anfang wirklich da sein muss
+- Welche 3 bis 5 Dinge müssen für den Start wirklich vorhanden sein?
+- Erkläre kurz, was diese Dinge praktisch bedeuten.
+
+5. Was am Anfang ausdrücklich noch NICHT da sein muss
+- Welche Dinge wären jetzt nur Ablenkung oder Perfektionismus?
+- Achte dabei darauf, keine rechtlichen, steuerlichen oder organisatorischen Pflichtpunkte pauschal abzuwerten.
+
+6. Realistischer Vertriebsweg für den ersten Test
+- Wo wird diese Variante zuerst sichtbar oder verkaufbar gemacht?
+- Wie kommen die ersten 1 bis 3 Käufer oder Kunden realistisch damit in Kontakt?
+- Warum ist genau dieser Weg für ein Sidebusiness mit wenig Zeit sinnvoll?
+- Erkläre die genannten Plattformen, Wege oder Mechaniken in einfacher Sprache.
+- Vermeide schwache Antworten wie:
+  - „Freunde fragen“
+  - „einfach posten“
+  - „Google“
+  - „Kleinanzeigen“
+  wenn diese nicht konkret und belastbar erklärt werden.
+
+7. 30-Tage-Plan
+Erstelle einen realistischen Plan für die ersten 4 Wochen.
+Für jede Woche:
+- 1 bis 3 konkrete Aufgaben
+- klar, machbar und priorisiert
+- passend zu 5 bis 8 Stunden pro Woche
+- keine Fantasie-To-do-Liste
+- nur das, was wirklich nötig ist
+- wenn ein Schritt fachlich oder vertrieblich noch zu groß ist, vereinfache ihn
+- erkläre bei jeder wichtigen Aufgabe kurz, was sie praktisch bedeutet und warum sie jetzt wichtig ist
+
+8. Woran ich merke, ob ich weitermachen, nachschärfen oder stoppen sollte
+- klare, beobachtbare Kriterien
+- keine Durchhalteparolen
+- keine künstliche Motivation
+- lieber nüchtern als schön
+- wenn du Zahlen nutzt, dann nur als grobe Orientierung und nicht als absolute Wahrheit
+
+WICHTIG FÜR DIE DARSTELLUNG:
+- Schreibe so, dass der Leser das Gefühl hat:
+  „Okay, ich weiß jetzt wirklich, was ich als Nächstes tun muss.“
+- Erkläre konkret, nicht abstrakt.
+- Nutze möglichst wenig Fachsprache.
+- Keine Business-Floskeln.
+- Keine unnötigen Metaphern.
+- Kein aufgeblasenes Strategiegerede.
+
+ABSCHLUSS:
+- Schließe mit einem klaren, ruhigen Absatz ab.
+- Kein neuer Prompt.
+- Keine neue Schleife.
+- Keine Frage am Ende.
+- Weise nur darauf hin, dass der Leser jetzt einen realistischen Startplan für seine gewählte Variante hat und damit loslegen kann.
+
+FORM DES LETZTEN ABSATZES:
+Der letzte Absatz soll klar sagen:
+1. Der Startplan für die gewählte Variante ist jetzt fertig.
+2. Er reicht aus, um aus dem Denken ins Handeln zu kommen.
+3. Der Leser sollte das Ergebnis sichern und jetzt die ersten Schritte wirklich umsetzen.
+
+
+Hier ist die gewählte Variante:
+[HIER DIE GEWÄHLTE VARIANTE AUS KAPITEL 4 EINFÜGEN]
+</textarea>
+        
         <button class="copy-btn" id="btn" onclick="copy()">Prompt kopieren</button>
         <br>
-        <a href="../" class="back-link">← Zur Übersicht</a>
-        
-        <footer>
-            &copy; 2026 Christoph Gievers – Urheberrechtlich geschützt.
-        </footer>
+        <a href="../" class="back-link">← Zurück zur Übersicht</a>
     </div>
 
     <script>
@@ -35,8 +320,13 @@
             navigator.clipboard.writeText(t.value);
             var b = document.getElementById("btn");
             b.innerText = "Kopiert! ✅";
-            b.style.background = "#28a745";
-            setTimeout(() => { b.innerText = "Prompt kopieren"; b.style.background = "#007bff"; }, 2000);
+            b.style.background = "#10b981"; /* Success Green */
+            b.style.boxShadow = "0 10px 15px -3px rgba(16, 185, 129, 0.3)";
+            setTimeout(() => { 
+                b.innerText = "Prompt kopieren"; 
+                b.style.background = "#14b8a6"; /* Back to Teal */
+                b.style.boxShadow = "0 10px 15px -3px rgba(20, 184, 166, 0.3)";
+            }, 2000);
         }
     </script>
 </body>
