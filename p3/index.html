@@ -3,28 +3,298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prompt Kapitel 2</title>
+    <title>Prompt Kapitel 1 | Christoph Gievers</title>
     <style>
-        body { font-family: -apple-system, system-ui, sans-serif; background: #f9f9fb; color: #1a1a1a; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
-        .box { width: 100%; max-width: 450px; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center; }
-        h1 { font-size: 1.3rem; margin-bottom: 20px; }
-        textarea { width: 100%; height: 180px; padding: 15px; border: 1px solid #ddd; border-radius: 12px; font-size: 0.95rem; background: #fafafa; resize: none; box-sizing: border-box; margin-bottom: 20px; }
-        .copy-btn { background: #007bff; color: white; border: none; padding: 16px; width: 100%; border-radius: 12px; font-weight: 600; cursor: pointer; font-size: 1rem; transition: 0.3s; }
-        .back-link { display: inline-block; margin-top: 20px; color: #007bff; text-decoration: none; font-size: 0.9rem; }
-        footer { margin-top: 30px; font-size: 0.75rem; color: #aaa; line-height: 1.4; border-top: 1px solid #eee; padding-top: 15px; }
+        :root {
+            --bg-color: #f1f5f9;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --accent: #14b8a6;
+            --accent-hover: #0d9488;
+            --success: #10b981;
+        }
+
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
+            margin: 0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .prompt-box { 
+            width: 100%; 
+            max-width: 460px; 
+            background: var(--card-bg); 
+            padding: 40px; 
+            border-radius: 28px; 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05); 
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        h1 { font-size: 1.5rem; font-weight: 800; margin-bottom: 25px; margin-top: 0; letter-spacing: -0.025em; }
+        
+        /* Die Textarea: Sauber & Fokussiert */
+        textarea { 
+            width: 100%; 
+            height: 220px; 
+            padding: 18px; 
+            border: 1px solid #e2e8f0; 
+            border-radius: 14px; 
+            font-size: 0.95rem; 
+            line-height: 1.6;
+            background: #f8fafc; 
+            resize: none; 
+            box-sizing: border-box; 
+            margin-bottom: 25px; 
+            color: #475569;
+            font-family: inherit;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+        }
+
+        /* Der Haupt-Button: Stark & Schwebend */
+        .copy-btn { 
+            background: var(--accent); 
+            color: white; 
+            border: none; 
+            padding: 18px; 
+            width: 100%; 
+            border-radius: 14px; 
+            font-weight: 700; 
+            cursor: pointer; 
+            font-size: 1.1rem; 
+            transition: all 0.2s; 
+            box-shadow: 0 10px 15px -3px rgba(20, 184, 166, 0.3);
+        }
+
+        .copy-btn:hover { 
+            background: var(--accent-hover); 
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(20, 184, 166, 0.4);
+        }
+        
+        .copy-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 5px 10px -3px rgba(20, 184, 166, 0.3);
+        }
+
+        /* Zurück-Link */
+        .back-link { 
+            display: inline-block; 
+            margin-top: 25px; 
+            color: #64748b; 
+            text-decoration: none; 
+            font-size: 0.95rem; 
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .back-link:hover { color: var(--accent); }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1>Kapitel 2: Prompt</h1>
-        <textarea id="pText" readonly>HIER DEINEN PROMPT TEXT FÜR KAPITEL 2 REINKOPIEREN</textarea>
+    <div class="prompt-box">
+        <h1>Kapitel 1: Prompt</h1>
+        <textarea id="pText" readonly>Hallo AI, du bist weiterhin mein ehrlicher Business-Mentor.
+
+Ich habe bereits:
+1. ein fertiges Business-Profil aus Kapitel 3
+2. ein fertiges Podium mit Bronze, Silber und Gold aus Kapitel 4
+
+Deine Aufgabe ist es jetzt, aus diesen Vorarbeiten konkrete, lebensnahe und realistische Business-Konzepte zu entwickeln.
+
+WICHTIG:
+- Antworte auf Deutsch.
+- Arbeite strikt auf Basis meines Business-Profils und meines Podiums aus Kapitel 4.
+- Gehe davon aus, dass es sich sehr wahrscheinlich um ein Sidebusiness oder einen nebenberuflichen Aufbau handelt, solange nicht klar etwas anderes aus meinem Profil hervorgeht.
+- Ziel ist in diesem Kapitel nicht die endgültige Auswahl eines einzigen Business.
+- Ziel ist es, die 5 stärksten konkreten Konzepte sichtbar zu machen, damit ich danach gezielt weiterarbeiten kann.
+- Die Konzepte sollen konkret, nah am Leben, motivierend und realistisch sein.
+- Vermeide generische Business-Sprache, abstrakte Begriffe und Standard-Ideen ohne greifbares Angebot.
+- Vermeide Formulierungen wie:
+  - „Probleme lösen“
+  - „Beratung anbieten“
+  - „Optimierung“
+  - „Dienstleistungen für Unternehmen“
+  - „Wissen verkaufen“
+  - „Templates erstellen“
+  - „Community aufbauen“
+  wenn diese nicht sofort konkret mit Zielgruppe, Problem, Angebot und Vertriebsweg verbunden werden.
+- Reduziere mich nicht auf meinen aktuellen Beruf.
+- Denke ausdrücklich auch an:
+  - lokale Möglichkeiten
+  - analoge oder praktische Angebote
+  - hybride Modelle
+  - kleine produktisierte Hilfen
+  - nachbarschaftsnahe Lösungen
+  - suchbasierte Angebote
+  - wiederkehrende Alltagsprobleme
+  - spitze Zielgruppen
+  - ruhige Sidebusinesses ohne große Reichweite
+- Eine Idee darf klein, bodennah und unspektakulär wirken, solange sie starke Passung, Realismus und Zugkraft hat.
+
+ZENTRALE DENKREGEL:
+Jede Idee muss so konkret sein, dass man sie sich im echten Leben vorstellen kann.
+Wenn eine Idee noch wie eine Kategorie klingt statt wie ein echtes Angebot, ist sie noch nicht konkret genug.
+
+ZUSÄTZLICHE VERSTÄNDLICHKEITS-REGEL:
+- Erkläre jede Idee in einfacher Alltagssprache.
+- Der Leser soll sofort verstehen:
+  1. worum es praktisch geht
+  2. was konkret verkauft oder angeboten wird
+  3. wie das Modell grob funktioniert
+- Verwende möglichst wenig Fachsprache.
+- Wenn du einen Plattform-, Tool- oder Business-Begriff nutzt, erkläre ihn direkt in einfacher Sprache.
+
+ZUSÄTZLICHE VERTRIEBS-REGEL:
+Jede Idee muss einen klaren, realistischen Vertriebsweg mit Hebel haben.
+Es reicht nicht, nur das Angebot zu beschreiben.
+
+Zu jeder Idee muss klar werden:
+- wo die kaufbereite Aufmerksamkeit liegt
+- über welchen Kanal oder Mechanismus das Angebot realistisch sichtbar und verkaufbar wird
+- warum genau dieser Vertriebsweg Hebel hat
+- warum dieser Vertriebsweg zur Zielgruppe und zu einem Sidebusiness passt
+
+WICHTIG:
+- „Bekannte“, „Freunde“, „Familie“, „mal in Gruppen posten“, „Kleinanzeigen“, „Google Suche“ oder ähnliche Dinge sind KEINE ausreichenden primären Vertriebswege.
+- Solche Dinge dürfen höchstens als Nebentest oder Zusatzchance erwähnt werden, aber nicht als eigentliche Vertriebslogik.
+- Ein guter Vertriebsweg mit Hebel ist zum Beispiel:
+  - eine Plattform mit echter Kaufintention
+  - ein Marktplatz mit passender Zielgruppe
+  - ein suchbasierter Kanal mit klarer Problemlösung
+  - ein Partner- oder Multiplikatorenmodell
+  - ein Nischen-Newsletter oder Creator-Kanal
+  - ein stationärer Partner mit wiederkehrendem Publikum
+  - eine Plattform oder Vertriebsfläche, auf der Kunden bereits aktiv nach genau so einer Lösung suchen
+- Wenn der Vertriebsweg unklar bleibt, ist die Idee nicht konkret genug.
+
+INTERNER ARBEITSMODUS:
+- Arbeite intern gründlich, mehrstufig und analytisch.
+- Du darfst intern viele Rohideen entwickeln, vergleichen, verdichten und verwerfen.
+- Du darfst intern in Stufen denken.
+- Diese internen Stufen, Zwischenschritte und Verdichtungen dürfen aber NICHT im sichtbaren Output erscheinen.
+
+SEHR WICHTIGE AUSGABEREGEL:
+- Gib nach außen NUR das verdichtete Endergebnis aus.
+- Zeige KEINE sichtbaren Stufen.
+- Zeige KEINE internen Zwischenschritte.
+- Zeige KEINE Liste mit Rohideen.
+- Zeige KEINE 8er-Zwischenauswahl.
+- Zeige KEINE Begründung deiner internen Verdichtung vor den finalen Konzepten.
+- Verwende im Output keine Überschriften wie:
+  - „Stufe 1“
+  - „Stufe 2“
+  - „Ideenfeld breit öffnen“
+  - „Verdichtung“
+  - „Mini-Konzeptkarten“
+- Starte direkt mit den finalen Top 5.
+- Nutze den freigewordenen Platz, um die 5 finalen Konzepte ausführlicher, klarer und greifbarer zu erklären.
+
+DEINE AUFGABE:
+Du sollst intern aus meinem Business-Profil und meinem Podium viele mögliche Business-Konzepte ableiten, sie prüfen, verdichten und dann die 5 stärksten final ausgeben.
+
+Prüfe intern:
+- wie gut das Konzept zu meinem Profil passt
+- wie konkret und greifbar das Angebot ist
+- wie realistisch der Start als Sidebusiness wäre
+- wie realistisch erste Verkäufe oder erste Kunden wären
+- wie ruhig oder unruhig der laufende Betrieb wäre
+- welche Fähigkeiten ich bereits mitbringe
+- welche Fähigkeiten ich noch lernen müsste
+- ob die Idee eher logisch gut klingt oder auch echte Zugkraft für mich haben könnte
+- wie stark und realistisch der Vertriebsweg mit Hebel ist
+
+GIB NUR DIE FINALEN TOP 5 AUS.
+
+FÜR JEDES DER 5 FINALEN KONZEPTE SOLLST DU ANGEBEN:
+
+1. Platz 1 bis 5
+
+2. Klare Bezeichnung des Konzepts
+
+3. Klartext-Erklärung in Alltagssprache:
+   - Worum geht es hier praktisch?
+   - Was wird konkret verkauft oder angeboten?
+   - Wie funktioniert dieses Business grob?
+
+4. Zielgruppe:
+   - Für wen ist dieses Angebot ganz konkret gedacht?
+
+5. Konkretes Problem:
+   - Welches echte Problem oder welcher Wunsch wird damit bedient?
+
+6. Konkretes Angebot:
+   - Wie sieht das Produkt oder die Dienstleistung in der Realität aus?
+   - Nicht abstrakt, sondern greifbar.
+
+7. Warum dieses Konzept gut zu meinem Profil passt:
+   - Welche Eigenschaften, Motive, Stärken oder Rahmenbedingungen aus meinem Profil sprechen dafür?
+
+8. Realistischer Vertriebsweg mit Hebel:
+   - Wo würde dieses Angebot realistisch zuerst verkauft oder sichtbar gemacht?
+   - Wie würden die ersten echten Käufer oder Kunden darauf stoßen?
+   - Was ist hier der Hebel?
+   - Warum ist dieser Vertriebsweg stärker als bloße Einzelansprache?
+
+9. Warum dieser Vertriebsweg für ein Sidebusiness realistisch ist:
+   - Warum passt genau dieser Weg zu wenig Zeit, begrenzter Energie und einem nebenberuflichen Start?
+
+10. Größte Stärke des Konzepts
+
+11. Größter Haken oder größte Reibung
+
+12. Passung von 1 bis 10
+
+13. Realismus für einen Start nebenberuflich:
+   - niedrig, mittel oder hoch
+
+14. Innere Zugkraft für mein Profil:
+   - niedrig, mittel oder hoch
+
+WICHTIG FÜR DIE DARSTELLUNG:
+- Erkläre jede Idee so, als würdest du den Leser an die Hand nehmen.
+- Nicht nur benennen, sondern wirklich verständlich machen.
+- Der Leser soll nach jeder Idee denken:
+  „Ah, jetzt verstehe ich genau, was das ist, was da verkauft wird und wie das an Kunden kommen soll.“
+- Keine Business-Floskeln.
+- Keine schwammigen Vertriebswege.
+- Keine Insider-Sprache ohne Erklärung.
+- Keine künstlich coolen Markennamen.
+
+ABSCHLUSS:
+- Erkläre kurz, warum Platz 1 vor Platz 2 liegt und warum diese 5 Konzepte insgesamt die stärksten Kandidaten sind.
+- Gib noch keine konkrete Umsetzungsstrategie, keinen Businessplan, kein Branding und keine nächsten operativen Schritte aus.
+- Stelle keine weiteren Fragen.
+- Öffne keine neue Schleife.
+- Biete nicht direkt den nächsten Schritt an.
+
+FORM DES LETZTEN ABSATZES:
+Der letzte Absatz soll klar sagen:
+1. Die Top 5 der konkreten Business-Konzepte sind jetzt fertig.
+2. Sie dienen als Grundlage für den nächsten Schritt im Buch.
+3. Ich sollte das Ergebnis sichern, weil wir darauf später aufbauen.
+
+Hier ist mein Business-Profil aus Kapitel 1:
+[HIER BUSINESS-PROFIL EINFÜGEN]
+
+Hier ist mein Podium aus Kapitel 2:
+[HIER PODIUM EINFÜGEN]</textarea>
+        
         <button class="copy-btn" id="btn" onclick="copy()">Prompt kopieren</button>
         <br>
-        <a href="../" class="back-link">← Zur Übersicht</a>
-        
-        <footer>
-            &copy; 2026 Christoph Gievers – Urheberrechtlich geschützt.
-        </footer>
+        <a href="../" class="back-link">← Zurück zur Übersicht</a>
     </div>
 
     <script>
@@ -35,8 +305,13 @@
             navigator.clipboard.writeText(t.value);
             var b = document.getElementById("btn");
             b.innerText = "Kopiert! ✅";
-            b.style.background = "#28a745";
-            setTimeout(() => { b.innerText = "Prompt kopieren"; b.style.background = "#007bff"; }, 2000);
+            b.style.background = "#10b981"; /* Success Green */
+            b.style.boxShadow = "0 10px 15px -3px rgba(16, 185, 129, 0.3)";
+            setTimeout(() => { 
+                b.innerText = "Prompt kopieren"; 
+                b.style.background = "#14b8a6"; /* Back to Teal */
+                b.style.boxShadow = "0 10px 15px -3px rgba(20, 184, 166, 0.3)";
+            }, 2000);
         }
     </script>
 </body>
