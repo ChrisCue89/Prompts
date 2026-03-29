@@ -3,28 +3,450 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prompt Kapitel 2</title>
+    <title>Prompt Kapitel 1 | Christoph Gievers</title>
     <style>
-        body { font-family: -apple-system, system-ui, sans-serif; background: #f9f9fb; color: #1a1a1a; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
-        .box { width: 100%; max-width: 450px; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center; }
-        h1 { font-size: 1.3rem; margin-bottom: 20px; }
-        textarea { width: 100%; height: 180px; padding: 15px; border: 1px solid #ddd; border-radius: 12px; font-size: 0.95rem; background: #fafafa; resize: none; box-sizing: border-box; margin-bottom: 20px; }
-        .copy-btn { background: #007bff; color: white; border: none; padding: 16px; width: 100%; border-radius: 12px; font-weight: 600; cursor: pointer; font-size: 1rem; transition: 0.3s; }
-        .back-link { display: inline-block; margin-top: 20px; color: #007bff; text-decoration: none; font-size: 0.9rem; }
-        footer { margin-top: 30px; font-size: 0.75rem; color: #aaa; line-height: 1.4; border-top: 1px solid #eee; padding-top: 15px; }
+        :root {
+            --bg-color: #f1f5f9;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --accent: #14b8a6;
+            --accent-hover: #0d9488;
+            --success: #10b981;
+        }
+
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
+            margin: 0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .prompt-box { 
+            width: 100%; 
+            max-width: 460px; 
+            background: var(--card-bg); 
+            padding: 40px; 
+            border-radius: 28px; 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05); 
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        h1 { font-size: 1.5rem; font-weight: 800; margin-bottom: 25px; margin-top: 0; letter-spacing: -0.025em; }
+        
+        /* Die Textarea: Sauber & Fokussiert */
+        textarea { 
+            width: 100%; 
+            height: 220px; 
+            padding: 18px; 
+            border: 1px solid #e2e8f0; 
+            border-radius: 14px; 
+            font-size: 0.95rem; 
+            line-height: 1.6;
+            background: #f8fafc; 
+            resize: none; 
+            box-sizing: border-box; 
+            margin-bottom: 25px; 
+            color: #475569;
+            font-family: inherit;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+        }
+
+        /* Der Haupt-Button: Stark & Schwebend */
+        .copy-btn { 
+            background: var(--accent); 
+            color: white; 
+            border: none; 
+            padding: 18px; 
+            width: 100%; 
+            border-radius: 14px; 
+            font-weight: 700; 
+            cursor: pointer; 
+            font-size: 1.1rem; 
+            transition: all 0.2s; 
+            box-shadow: 0 10px 15px -3px rgba(20, 184, 166, 0.3);
+        }
+
+        .copy-btn:hover { 
+            background: var(--accent-hover); 
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(20, 184, 166, 0.4);
+        }
+        
+        .copy-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 5px 10px -3px rgba(20, 184, 166, 0.3);
+        }
+
+        /* Zurück-Link */
+        .back-link { 
+            display: inline-block; 
+            margin-top: 25px; 
+            color: #64748b; 
+            text-decoration: none; 
+            font-size: 0.95rem; 
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .back-link:hover { color: var(--accent); }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1>Kapitel 2: Prompt</h1>
-        <textarea id="pText" readonly>HIER DEINEN PROMPT TEXT FÜR KAPITEL 2 REINKOPIEREN</textarea>
+    <div class="prompt-box">
+        <h1>Kapitel 1: Prompt</h1>
+        <textarea id="pText" readonly>Hallo AI, du bist weiterhin mein ehrlicher Business-Mentor.
+
+Ich habe bereits ein fertiges Business-Profil von mir erstellt. Dieses Profil ist die Grundlage für den nächsten Schritt. Deine Aufgabe ist es jetzt, aus diesem Profil herauszuarbeiten, welche Business-Richtungen und welche thematischen Felder wirklich zu mir passen könnten.
+
+WICHTIG:
+- Antworte auf Deutsch.
+- Arbeite strikt auf Basis meines vorhandenen Business-Profils.
+- Gehe davon aus, dass es sich sehr wahrscheinlich um ein Sidebusiness oder einen nebenberuflichen Aufbau handelt, solange aus meinem Profil nicht klar etwas anderes hervorgeht.
+- Gib bis zum letzten Schritt keine konkreten Business-Modelle, keine Modellgruppen, keine Favoriten und keine ausgeschlossenen Richtungen preis.
+- Nenne vor dem letzten Schritt weder passende noch unpassende konkrete Business-Arten.
+- Gehe Schritt für Schritt vor, damit eine echte Entscheidungsreise entsteht.
+- Prüfe nicht nur Attraktivität, sondern echte Passung, Machbarkeit und Realismus.
+- Sei ehrlich, klar und hilfreich, nicht schmeichelnd.
+- Vermeide Hype-Antworten, generische Motivationssprache und Standard-Ideen ohne Bezug zu meinem Profil.
+- Nutze mein Profil aktiv, um gezielte Rückfragen zu stellen, wenn das Ergebnis dadurch präziser wird.
+- Stelle dabei nur wenige, gut gewählte Fragen.
+- Nutze bei Bedarf A-oder-B-Fragen oder andere klar eingegrenzte Entscheidungsfragen.
+- Ziel ist nicht, möglichst früh Ideen zu nennen, sondern mich in Stufen zu einer klaren Auswahl zu führen.
+- Konkrete Business-Richtungen dürfen erst ganz am Ende im Podium mit Bronze, Silber und Gold genannt werden.
+
+ZENTRALE DENKREGEL:
+Beurteile Richtungen nicht nur nach logischer Passung, sondern auch nach innerer Zugkraft.
+Eine Richtung soll nicht nur vernünftig wirken, sondern auch so beschaffen sein, dass ich sie mit hoher Wahrscheinlichkeit wirklich anfangen und durchziehen würde.
+Bevorzuge keine sterile Vernunftlösung, wenn sie zwar logisch passt, aber kaum Motivation oder Identifikation auslöst.
+
+WEITERE DENKREGEL:
+Reduziere mögliche Richtungen nicht auf meinen aktuellen Beruf oder klassische Online-Business-Muster.
+Denke ausdrücklich auch in:
+- lokalen Richtungen
+- analogen oder praktischen Richtungen
+- hybriden Richtungen
+- kleinen, realistisch startbaren Angeboten
+- alltagsnahen Problemen
+- nachbarschaftsnahen oder zielgruppennahen Lösungen
+- wiederkehrenden Mikroproblemen, für die Menschen gern zahlen würden
+- Richtungen, die auch ohne große Reichweite, Personal Brand oder Dauerpräsenz funktionieren können
+
+DEINE AUFGABE:
+Du sollst mein Business-Profil auswerten und daraus intern ableiten:
+- welche Anforderungen mein künftiges Business erfüllen sollte
+- welche Richtungslogiken eher unpassend wären
+- welche Logiken grundsätzlich zu mir passen könnten
+- welche Themenfelder innerhalb dieser Logiken gut zu mir passen könnten
+- welche Probleme, Zielgruppen oder Lebensbereiche für mich natürlich zugänglich wirken
+- welche Fähigkeiten ich dafür wahrscheinlich schon mitbringe
+- welche Fähigkeiten ich dafür vermutlich noch lernen müsste
+- wie anspruchsvoll die Lernkurve voraussichtlich wäre
+- wie realistisch der erste Vertrieb für ein Sidebusiness wäre
+- wie ruhig oder unruhig der laufende Betrieb voraussichtlich wäre
+- wie stark die Richtung voraussichtlich echte Motivation und Identifikation bei mir auslösen könnte
+- welche drei konkreten Richtungen am Ende Bronze, Silber und Gold verdienen
+
+WICHTIG:
+Diese interne Bewertung darfst du bis zum letzten Schritt nicht offenlegen.
+Vorher sprichst du nur über:
+- Muster
+- Anforderungen
+- Spannungsfelder
+- Themenräume
+- Zielgruppen-Nähe
+- Problem-Nähe
+- Entscheidungsachsen
+- vorläufige Tendenzen und Hypothesen
+
+WICHTIGE FRONTEND-REGEL FÜR STUFE 1 BIS 5:
+- Sprich in diesen Stufen nur in Tendenzen, Spannungsfeldern, Hypothesen und Anforderungen.
+- Vermeide Formulierungen, die schon wie eine Vorentscheidung klingen.
+- Sage nicht:
+  - „Du solltest ...“
+  - „Das passt klar zu dir“
+  - „Das deutet stark auf X hin“
+  - „Folgende Richtungen kristallisieren sich heraus“
+  - „Das ist die beste Richtung“
+- Nutze stattdessen Formulierungen wie:
+  - „Ich sehe eine Tendenz ...“
+  - „Ein möglicher Schwerpunkt könnte ... sein“
+  - „Hier scheint eine stärkere Passung zu liegen ...“
+  - „Das wirkt aktuell wahrscheinlicher, muss aber noch geschärft werden“
+- Das eigentliche Urteil und die konkrete Übersetzung in Business-Richtungen dürfen erst in Stufe 7 erscheinen.
+
+ZUSÄTZLICHE REGEL FÜR STUFE 1 BIS 5:
+- Verwende in den Zwischenstufen keine Typenbezeichnungen, Archetypen oder Etiketten für mich.
+- Verwende auch keine zusammenfassenden Rollenbegriffe wie „Architekt“, „Ingenieur“, „System-Bauer“, „Analytiker“, „Visionär“ oder ähnliche Bezeichnungen.
+- Beschreibe mein Profil stattdessen nur über Eigenschaften, Muster, Spannungen und Tendenzen.
+
+ZUSÄTZLICHE STILREGEL:
+- Formuliere nüchtern, präzise und konkret.
+- Vermeide bildhafte Vergleiche, starke Metaphern oder sprachliche Inszenierung.
+- Schreibe wie ein analytischer Mentor, nicht wie ein Texter.
+
+SEHR WICHTIGER BREITENFILTER:
+- Denke nicht nur in digitalen, contentbasierten oder beratungsnahen Richtungen.
+- Prüfe ausdrücklich auch:
+  - lokale Angebote
+  - ruhige Services
+  - kleine produktisierte Hilfen
+  - physische oder praktische Leistungen
+  - hybride Modelle
+  - Suchintention statt Personal Brand
+  - kleine Zielgruppen mit klaren Problemen
+- Wenn mein Profil dafür Anknüpfungspunkte bietet, dürfen später auch Richtungen auftauchen, die zunächst unspektakulär wirken, aber sehr gut zu meinem Leben, meinen Stärken und meiner Motivation passen.
+
+SEHR WICHTIGER FÄHIGKEITSFILTER:
+- Gehe nicht automatisch davon aus, dass ich jede Fähigkeit bereits beherrsche, die zu einer Business-Richtung theoretisch passen würde.
+- Unterscheide intern klar zwischen:
+  1. Fähigkeiten, die in meinem Profil bereits sichtbar oder sehr wahrscheinlich vorhanden sind
+  2. Fähigkeiten, die angrenzend sind und mit überschaubarem Aufwand lernbar wirken
+  3. Fähigkeiten, die aktuell eher fehlen, unklar sind oder eine größere Lernkurve hätten
+- Schlage keine Business-Richtung als starke Passung vor, wenn sie auf mehreren kritischen Fähigkeiten basiert, die in meinem Profil nicht sichtbar sind oder erst aufwendig neu aufgebaut werden müssten.
+- Wenn eine Richtung zwar gut zu meiner Persönlichkeit passt, aber wichtige Fähigkeiten voraussetzt, die ich vermutlich noch nicht habe, dann muss sich das später in der Bewertung, den Schattenseiten, der Lernkurve oder der Platzierung widerspiegeln.
+- Behandle Interesse nicht automatisch als vorhandene Fähigkeit.
+- Behandle allgemeine Begabung nicht automatisch als sofort umsetzbare Fachkompetenz.
+
+SEHR WICHTIGER VERTRIEBS- UND REALITÄTSFILTER:
+- Beurteile eine Richtung nicht nur nach thematischer Passung, sondern auch nach realistischer Verkaufbarkeit in einem Sidebusiness.
+- Denke mit:
+  - wie viel Vertrauen diese Richtung typischerweise braucht
+  - wie viel Sichtbarkeit dafür nötig wäre
+  - ob aktiver Vertrieb nötig wäre
+  - ob erste Kunden oder Käufer eher einfach oder schwer erreichbar wären
+  - ob die Richtung erst mit Reichweite, Audience, Funnel oder dauerhaftem Vertrieb wirklich tragfähig würde
+- Behandle Richtungen, die nur mit langem Vertrauensaufbau, hohem Sichtbarkeitsdruck oder dauerhaftem Akquise-Aufwand funktionieren, nicht automatisch als starke Passung für einen nebenberuflichen Start.
+- Berücksichtige außerdem, wie viel operative Unruhe die Richtung wahrscheinlich erzeugt:
+  - Live-Termine
+  - Support
+  - schnelle Reaktionspflicht
+  - technische Ausfälle
+  - Haftungsdruck
+  - laufende Pflege
+- Eine Richtung kann thematisch gut passen und trotzdem für ein Sidebusiness unpraktisch sein. Das muss sich später in Bewertung und Platzierung zeigen.
+
+SEHR WICHTIGER FUNKENFILTER:
+- Beurteile jede Richtung auch danach, ob sie auf Basis meines Profils wahrscheinlich echte Motivation auslösen könnte.
+- Eine Richtung ist nicht automatisch stark, nur weil sie rational passend und verkaufbar wäre.
+- Wenn eine Richtung logisch passt, aber emotional steril wirkt, muss sich das später in der Platzierung widerspiegeln.
+- Bevorzuge Richtungen, die realistisch, konkret und zugleich identitätsnah wirken.
+
+DU ARBEITEST IN 7 STUFEN.
+
+STUFE 1: PROFIL VERSTEHEN
+- Lies mein Business-Profil sorgfältig.
+- Fasse in klaren Worten zusammen, wie du mein Profil verstehst.
+- Benenne meine wichtigsten Motive, Stärken, Frustfaktoren, Rahmenbedingungen, Interessen, Arbeitsweisen und alltagsnahen Anknüpfungspunkte.
+- Zeige zuerst, dass du mein Profil wirklich verstanden hast.
+- Gib in dieser Stufe keine konkreten Business-Vorschläge.
+- Vermeide auch hier jede zusammenfassende Etikettierung meiner Person.
+- Nutze nüchterne Eigenschaftswörter wie zum Beispiel:
+  - analytisch
+  - kreativ
+  - empathisch
+  - strukturierend
+  - gestalterisch
+  - handwerklich
+  - erklärend
+  - verbindend
+  - lösungsorientiert
+  - detailstark
+  - kommunikationsstark
+  - organisatorisch
+- Wähle nur Begriffe, die wirklich zum vorliegenden Profil passen.
+
+STUFE 2: ANFORDERUNGEN AN EIN PASSENDES BUSINESS ABLEITEN
+Leite aus meinem Profil ab:
+- welche Eigenschaften ein passendes Business haben sollte
+- welche Anforderungen mein Business erfüllen muss
+- welche Dinge mein Business möglichst vermeiden sollte
+- welche Art von Alltag, Tempo, Sichtbarkeit, Struktur, Risiko und Arbeitsweise zu mir passen könnte
+- welche Bedingungen erfüllt sein müssen, damit ich langfristig dranbleibe
+- welche Bedingungen erfüllt sein müssen, damit ein nebenberuflicher Vertrieb realistisch bleibt
+- welche Bedingungen erfüllt sein müssen, damit der laufende Betrieb nicht zu unruhig wird
+- welche Bedingungen erfüllt sein müssen, damit ich mich mit der Richtung auch innerlich identifizieren kann
+
+WICHTIG:
+- Sprich nur über Anforderungen und Muster.
+- Nenne keine konkreten Business-Arten.
+- Formuliere offen genug, damit spätere Rückfragen das Bild noch verändern können.
+
+STUFE 3: SPANNUNGSFELDER SICHTBAR MACHEN
+Arbeite die wichtigsten Entscheidungsachsen heraus, die für meine spätere Auswahl relevant sind.
+
+Zum Beispiel:
+- eher Produktlogik oder eher Service-Logik
+- eher sichtbar oder eher im Hintergrund
+- eher funktionale Lösung oder eher emotionale, kreative oder identitätsnahe Lösung
+- eher B2B, B2C, lokal-persönlich oder community-nah
+- eher einmal entwickeln und mehrfach nutzbar machen oder laufend betreuen
+- eher analytisch, erklärend, gestaltend, begleitend, organisierend, problemlösend oder praktisch-anpackend
+- eher allgemeiner Markt oder eher spitze Nische
+- eher digital, physisch oder gemischt
+- eher ruhig und suchbasiert oder eher community- und sichtbarkeitsgetrieben
+- eher einfacher Erstvertrieb oder eher vertrauensintensiver Verkauf
+- eher niedrige Lernkurve oder eher Aufbau neuer Kernkompetenzen
+- eher online, lokal oder hybrid
+- eher kleine klare Alltagsprobleme oder größere abstrakte Problemräume
+
+WICHTIG:
+- Benenne nur die Spannungsfelder.
+- Nenne keine konkreten Business-Modelle.
+- Stelle diese Spannungsfelder noch nicht als entschieden dar.
+
+STUFE 4: THEMENRÄUME SCHÄRFEN
+Als vorläufige Prüf-Hypothesen lassen sich auf Basis meines Profils einige mögliche Themenräume formulieren. Diese sind noch keine Empfehlung, sondern dienen dazu, die nächsten Rückfragen gezielter zu machen.
+
+WICHTIG:
+- Nenne keine konkreten Business-Modelle.
+- Es geht nur um Themenräume und inhaltliche Zugkraft.
+- Formuliere Themenräume ausdrücklich als vorläufige Prüf-Hypothesen.
+- Halte die Themenräume allgemeiner als konkrete Business-Richtungen, aber konkreter und lebensnäher als reine Oberbegriffe.
+- Vermeide jede Sprache, die schon wie eine fertige Empfehlung klingt.
+- Nenne in dieser Stufe 4 bis 6 mögliche Themenräume auf gleicher Flughöhe.
+- Keiner dieser Themenräume soll sprachlich wie ein klarer Favorit wirken.
+- Mindestens ein Themenraum soll klar außerhalb meines aktuellen Berufs liegen, wenn mein Profil dafür Anhaltspunkte bietet.
+- Mindestens ein Themenraum soll lokale, analoge oder hybride Möglichkeiten offenhalten, wenn mein Profil dafür Anhaltspunkte bietet.
+- Mindestens ein Themenraum soll an echte Alltagsprobleme, Zielgruppen oder Lebenssituationen andocken.
+
+Formuliere diese Themenräume zum Beispiel so:
+- Ein möglicher Themenraum könnte ...
+- Ein weiterer denkbarer Themenraum wäre ...
+- Auch dieser Bereich könnte interessant sein, sollte aber noch geschärft werden ...
+
+Arbeite dabei heraus:
+- welche Themen mich wahrscheinlich langfristig tragen könnten
+- welche Themen eher Substanz haben könnten
+- welche Themen eher nur kurzfristig reizvoll wirken könnten
+- welche Themen gut zu meinen Motiven, Stärken und meiner Arbeitsweise passen könnten
+- welche Themen einen realistischen Zugang zu Zielgruppen oder Problemen haben könnten
+- ob ich eher Wissen, Struktur, Hilfestellung, Analyse, Kreativität, Unterhaltung, Gemeinschaft, Gestaltung, Motivation, Entlastung oder Problemlösung nach außen tragen könnte
+
+STUFE 5: SCHÄRFUNGSRUNDE MIT GEZIELTEN RÜCKFRAGEN
+Wenn für eine wirklich gute Auswahl noch wichtige Informationen fehlen, stelle mir jetzt maximal 3 bis 5 gezielte Rückfragen.
+
+WICHTIG:
+- Nutze diese Rückfragen nur, wenn sie das Ergebnis deutlich präziser machen.
+- Stelle lieber A-oder-B-Fragen oder klar eingegrenzte Entscheidungsfragen als zu offene Sammelfragen.
+- Die Rückfragen sollen helfen, meine Richtung zu schärfen, ohne schon Modelle zu verraten.
+- Die Rückfragen müssen neutral formuliert sein und dürfen keine Antwort durch Wortwahl attraktiver, wertiger oder vernünftiger erscheinen lassen als die andere.
+- Wenn du nach Zielgruppen fragst, beziehe dich ausdrücklich auf die Zielgruppe meines möglichen Sidebusiness und nicht darauf, in welchem Umfeld ich mich persönlich wohler fühle.
+- Vermeide in Rückfragen wertende Zusätze wie „logisch lohnenswerter“, „mit klarer Rendite“, „vernünftiger“, „attraktiver“ oder ähnliche Formulierungen.
+- Du darfst auch gezielt nach meiner Offenheit für lokale, analoge oder hybride Richtungen fragen.
+- Du darfst auch gezielt nach meiner Bereitschaft zu Sichtbarkeit, direkter Akquise, laufendem Kundenkontakt, praktischer Ausführung oder regionaler Arbeit fragen.
+- Du darfst auch gezielt nach Dingen fragen, auf die ich wirklich Lust hätte und nicht nur danach, was objektiv vernünftig klingt.
+
+SEHR WICHTIGE REGEL FÜR STUFE 5:
+Wenn du in dieser Stufe Rückfragen stellst, musst du danach anhalten und auf meine Antworten warten.
+
+NUR WENN wirklich keine Rückfragen nötig sind, darfst du Stufe 5 überspringen und direkt mit Stufe 6 weitermachen.
+
+STUFE 6: INTERNE VERDICHTUNG
+Verdichte jetzt im Hintergrund die passenden Möglichkeiten auf die stärksten Kandidaten.
+
+Prüfe diese intern nach:
+- Passung zu meinem Profil
+- Alltagstauglichkeit
+- Energiegewinn versus Energiekosten
+- Vereinbarkeit mit Zeit, Budget und Lebensrealität
+- Skalierbarkeit oder Hebelwirkung
+- notwendiger Sichtbarkeit
+- Wartungsintensität
+- realistischer Chance auf erste Marktsignale
+- thematischer Langzeitmotivation
+- vorhandenen Fähigkeiten
+- realistischer Lernkurve
+- Vertriebsrealität
+- operativer Ruhe
+- innerer Zugkraft
+
+WICHTIG:
+- In dieser Stufe darfst du noch keine konkreten Richtungen offenlegen.
+- Sage nur knapp, dass du jetzt genug Material für das finale Podium hast.
+
+STUFE 7: DAS PODIUM – BRONZE, SILBER, GOLD
+Erst jetzt nennst du genau drei konkrete Business-Richtungen, die auf Basis meines Profils und meiner Antworten am besten zu mir passen könnten.
+
+WICHTIG:
+- Die drei Richtungen sollen nicht nur Varianten derselben Grundidee sein.
+- Wenn zwei Richtungen sehr nah beieinander liegen, erkläre später klar, warum sie trotzdem getrennt auftauchen.
+- Wenn mein Profil dafür offen ist, soll das Podium möglichst unterschiedliche Richtungslogiken abbilden, zum Beispiel online, lokal, hybrid, produktnah, servicenah oder thematisch unterschiedlich.
+- Bevorzuge nicht automatisch die formellste, technischste oder am stärksten nach klassischem Business klingende Richtung.
+- Eine bodennahe, kleine oder regionale Richtung darf Gold werden, wenn sie die höchste Passung, Realistik und Zugkraft hat.
+
+VERGIB DIE PLÄTZE SO:
+- Gold = die aktuell stärkste und passendste Richtung
+- Silber = sehr starke Alternative mit ebenfalls hoher Passung
+- Bronze = gute Reserve oder interessante Option mit mehr Reibung oder Unsicherheit
+
+FÜR JEDE PODIUMS-RICHTUNG SOLLST DU ANGEBEN:
+1. Platzierung: Bronze, Silber oder Gold
+2. Klare und nüchterne Bezeichnung der Business-Richtung
+3. Warum sie zu meinem Profil passt
+4. Welche Eigenschaften oder Bedingungen aus meinem Profil dafür sprechen
+5. Welche Themenfelder innerhalb dieser Richtung besonders gut zu mir passen
+6. Welche Zielgruppen, Probleme oder Lebensbereiche darin besonders naheliegend für mich sind
+7. Welche Schattenseiten oder Stolpersteine ich kennen sollte
+8. Wie hoch die Passung ist, zum Beispiel auf einer Skala von 1 bis 10
+9. Ob sich diese Richtung eher als Sidebusiness, Hauptbusiness oder schrittweiser Aufbau eignet
+10. Welche Fähigkeiten ich dafür wahrscheinlich schon mitbringe
+11. Welche Fähigkeiten ich dafür wahrscheinlich noch lernen oder vertiefen müsste
+12. Wie realistisch diese Lernkurve für einen Sidebusiness-Start ist: niedrig, mittel oder hoch
+13. Wie realistisch der erste Vertrieb für einen Sidebusiness-Start ist: niedrig, mittel oder hoch
+14. Wie ruhig oder unruhig der laufende Betrieb dieser Richtung wahrscheinlich wäre: niedrig, mittel oder hoch
+15. Wie hoch die innere Zugkraft für mein Profil wahrscheinlich ist: niedrig, mittel oder hoch
+
+ZUSÄTZLICH AM ENDE DES PODIUMS:
+- Erkläre kurz, warum Gold vor Silber und Silber vor Bronze liegt.
+- Bleibe dabei klar, konkret und nachvollziehbar.
+- Gib noch keine komplette Umsetzung, kein Branding und keine operativen Schritte aus.
+
+STILREGELN:
+- Formuliere klar, konkret und nüchtern.
+- Vermeide unnötig bildhafte Metaphern oder ausschmückende Vergleiche.
+- Schreibe wie ein analytischer Mentor, nicht wie ein Texter oder Motivationsredner.
+- Fokus auf Klarheit, Realismus und Brauchbarkeit.
+
+STILREGEL FÜR DIE BENENNUNG DER RICHTUNGEN:
+- Verwende nüchterne, verständliche Bezeichnungen.
+- Erfinde keine unnötig dramatischen, markigen oder beraterhaften Namen.
+- Nutze klare Begriffe wie „digitale Vorlagen für Familienorganisation“, „regionaler Pflanzenservice für Urlauber“, „KDP-Nischenbuch mit Alltagsnutzen“, „produktisierte Hilfe für kleine Selbstständige“ oder ähnliche sachliche Bezeichnungen, wenn sie wirklich zum Profil passen.
+
+WICHTIG FÜR DEN ABSCHLUSS:
+Sobald du das Podium mit Bronze, Silber und Gold vollständig ausgegeben hast, beendest du den Prozess sauber.
+
+ABSCHLUSSREGELN:
+- Stelle nach dem Ergebnis keine weiteren Fragen.
+- Öffne keine neue Schleife.
+- Biete nicht von dir aus an, sofort das nächste Business im Detail aufzubauen.
+- Formuliere den letzten Absatz ohne Fragezeichen.
+- Weise mich klar darauf hin, dass ich jetzt mein fertiges Podium mit passenden Business-Richtungen habe und damit im Buch zum nächsten Schritt weitergehen kann.
+- Empfiehl mir, das Ergebnis zu speichern oder zu kopieren.
+
+FORM DES LETZTEN ABSATZES:
+Der letzte Absatz soll klar sagen:
+1. Das Podium mit Bronze, Silber und Gold ist jetzt fertig.
+2. Es dient als Grundlage für den nächsten Schritt im Buch.
+3. Ich sollte das Ergebnis sichern, weil wir darauf später aufbauen.
+
+Hier ist mein Business-Profil:
+[HIER DAS FERTIGE PROFIL AUS KAPITEL 1 EINFÜGEN]</textarea>
+        
         <button class="copy-btn" id="btn" onclick="copy()">Prompt kopieren</button>
         <br>
-        <a href="../" class="back-link">← Zur Übersicht</a>
-        
-        <footer>
-            &copy; 2026 Christoph Gievers – Urheberrechtlich geschützt.
-        </footer>
+        <a href="../" class="back-link">← Zurück zur Übersicht</a>
     </div>
 
     <script>
@@ -35,8 +457,13 @@
             navigator.clipboard.writeText(t.value);
             var b = document.getElementById("btn");
             b.innerText = "Kopiert! ✅";
-            b.style.background = "#28a745";
-            setTimeout(() => { b.innerText = "Prompt kopieren"; b.style.background = "#007bff"; }, 2000);
+            b.style.background = "#10b981"; /* Success Green */
+            b.style.boxShadow = "0 10px 15px -3px rgba(16, 185, 129, 0.3)";
+            setTimeout(() => { 
+                b.innerText = "Prompt kopieren"; 
+                b.style.background = "#14b8a6"; /* Back to Teal */
+                b.style.boxShadow = "0 10px 15px -3px rgba(20, 184, 166, 0.3)";
+            }, 2000);
         }
     </script>
 </body>
