@@ -3,20 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dein Buch-Prompt</title>
+    <title>Prompt Kapitel 1 | Christoph Gievers</title>
     <style>
-        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: #f4f4f9; color: #333; }
-        .container { text-align: center; padding: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 90%; max-width: 400px; }
-        h1 { font-size: 1.2rem; margin-bottom: 20px; }
-        textarea { width: 100%; height: 100px; padding: 10px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 20px; font-size: 0.9rem; resize: none; background: #fafafa; }
-        button { background: #007bff; color: white; border: none; padding: 12px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; transition: background 0.3s; }
-        button:active { background: #0056b3; }
+        :root {
+            --bg-color: #f1f5f9;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --accent: #14b8a6;
+            --accent-hover: #0d9488;
+            --success: #10b981;
+        }
+
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
+            margin: 0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .prompt-box { 
+            width: 100%; 
+            max-width: 460px; 
+            background: var(--card-bg); 
+            padding: 40px; 
+            border-radius: 28px; 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05); 
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        h1 { font-size: 1.5rem; font-weight: 800; margin-bottom: 25px; margin-top: 0; letter-spacing: -0.025em; }
+        
+        /* Die Textarea: Sauber & Fokussiert */
+        textarea { 
+            width: 100%; 
+            height: 220px; 
+            padding: 18px; 
+            border: 1px solid #e2e8f0; 
+            border-radius: 14px; 
+            font-size: 0.95rem; 
+            line-height: 1.6;
+            background: #f8fafc; 
+            resize: none; 
+            box-sizing: border-box; 
+            margin-bottom: 25px; 
+            color: #475569;
+            font-family: inherit;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+        }
+
+        /* Der Haupt-Button: Stark & Schwebend */
+        .copy-btn { 
+            background: var(--accent); 
+            color: white; 
+            border: none; 
+            padding: 18px; 
+            width: 100%; 
+            border-radius: 14px; 
+            font-weight: 700; 
+            cursor: pointer; 
+            font-size: 1.1rem; 
+            transition: all 0.2s; 
+            box-shadow: 0 10px 15px -3px rgba(20, 184, 166, 0.3);
+        }
+
+        .copy-btn:hover { 
+            background: var(--accent-hover); 
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(20, 184, 166, 0.4);
+        }
+        
+        .copy-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 5px 10px -3px rgba(20, 184, 166, 0.3);
+        }
+
+        /* Zurück-Link */
+        .back-link { 
+            display: inline-block; 
+            margin-top: 25px; 
+            color: #64748b; 
+            text-decoration: none; 
+            font-size: 0.95rem; 
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .back-link:hover { color: var(--accent); }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Kapitel 1: Dein Prompt</h1>
-        <textarea id="promptText" readonly>Hallo AI, du bist mein ehrlicher Business-Mentor.
+    <div class="prompt-box">
+        <h1>Kapitel 1: Prompt</h1>
+        <textarea id="pText" readonly>Hallo AI, du bist mein ehrlicher Business-Mentor.
 
 Wir stehen am Anfang einer Reise. Unser Ziel ist es, gemeinsam das passende Sidebusiness oder Hauptbusiness für mich zu finden. Ich stehe noch am Anfang und weiß noch nicht genau, wo ich hin will.
 
@@ -247,22 +337,26 @@ Der letzte Absatz soll klar sagen:
 1. Das Business-Profil ist jetzt fertig.
 2. Es dient als Grundlage für den nächsten Schritt im Buch.
 3. Ich sollte das Ergebnis sichern, weil wir darauf später aufbauen.</textarea>
-        <button onclick="copyPrompt()" id="copyBtn">Prompt kopieren</button>
+        
+        <button class="copy-btn" id="btn" onclick="copy()">Prompt kopieren</button>
+        <br>
+        <a href="../" class="back-link">← Zurück zur Übersicht</a>
     </div>
 
     <script>
-        function copyPrompt() {
-            var copyText = document.getElementById("promptText");
-            copyText.select();
-            copyText.setSelectionRange(0, 99999); // Für Mobilgeräte
-            navigator.clipboard.writeText(copyText.value);
-            
-            var btn = document.getElementById("copyBtn");
-            btn.innerText = "Kopiert! ✅";
-            btn.style.background = "#28a745";
+        function copy() {
+            var t = document.getElementById("pText");
+            t.select();
+            t.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(t.value);
+            var b = document.getElementById("btn");
+            b.innerText = "Kopiert! ✅";
+            b.style.background = "#10b981"; /* Success Green */
+            b.style.boxShadow = "0 10px 15px -3px rgba(16, 185, 129, 0.3)";
             setTimeout(() => { 
-                btn.innerText = "Prompt kopieren"; 
-                btn.style.background = "#007bff";
+                b.innerText = "Prompt kopieren"; 
+                b.style.background = "#14b8a6"; /* Back to Teal */
+                b.style.boxShadow = "0 10px 15px -3px rgba(20, 184, 166, 0.3)";
             }, 2000);
         }
     </script>
