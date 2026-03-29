@@ -3,28 +3,295 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prompt Kapitel 2</title>
+    <title>Prompt Kapitel 1 | Christoph Gievers</title>
     <style>
-        body { font-family: -apple-system, system-ui, sans-serif; background: #f9f9fb; color: #1a1a1a; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
-        .box { width: 100%; max-width: 450px; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center; }
-        h1 { font-size: 1.3rem; margin-bottom: 20px; }
-        textarea { width: 100%; height: 180px; padding: 15px; border: 1px solid #ddd; border-radius: 12px; font-size: 0.95rem; background: #fafafa; resize: none; box-sizing: border-box; margin-bottom: 20px; }
-        .copy-btn { background: #007bff; color: white; border: none; padding: 16px; width: 100%; border-radius: 12px; font-weight: 600; cursor: pointer; font-size: 1rem; transition: 0.3s; }
-        .back-link { display: inline-block; margin-top: 20px; color: #007bff; text-decoration: none; font-size: 0.9rem; }
-        footer { margin-top: 30px; font-size: 0.75rem; color: #aaa; line-height: 1.4; border-top: 1px solid #eee; padding-top: 15px; }
+        :root {
+            --bg-color: #f1f5f9;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --accent: #14b8a6;
+            --accent-hover: #0d9488;
+            --success: #10b981;
+        }
+
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
+            margin: 0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .prompt-box { 
+            width: 100%; 
+            max-width: 460px; 
+            background: var(--card-bg); 
+            padding: 40px; 
+            border-radius: 28px; 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05); 
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        h1 { font-size: 1.5rem; font-weight: 800; margin-bottom: 25px; margin-top: 0; letter-spacing: -0.025em; }
+        
+        /* Die Textarea: Sauber & Fokussiert */
+        textarea { 
+            width: 100%; 
+            height: 220px; 
+            padding: 18px; 
+            border: 1px solid #e2e8f0; 
+            border-radius: 14px; 
+            font-size: 0.95rem; 
+            line-height: 1.6;
+            background: #f8fafc; 
+            resize: none; 
+            box-sizing: border-box; 
+            margin-bottom: 25px; 
+            color: #475569;
+            font-family: inherit;
+        }
+        
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+        }
+
+        /* Der Haupt-Button: Stark & Schwebend */
+        .copy-btn { 
+            background: var(--accent); 
+            color: white; 
+            border: none; 
+            padding: 18px; 
+            width: 100%; 
+            border-radius: 14px; 
+            font-weight: 700; 
+            cursor: pointer; 
+            font-size: 1.1rem; 
+            transition: all 0.2s; 
+            box-shadow: 0 10px 15px -3px rgba(20, 184, 166, 0.3);
+        }
+
+        .copy-btn:hover { 
+            background: var(--accent-hover); 
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(20, 184, 166, 0.4);
+        }
+        
+        .copy-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 5px 10px -3px rgba(20, 184, 166, 0.3);
+        }
+
+        /* Zurück-Link */
+        .back-link { 
+            display: inline-block; 
+            margin-top: 25px; 
+            color: #64748b; 
+            text-decoration: none; 
+            font-size: 0.95rem; 
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .back-link:hover { color: var(--accent); }
     </style>
 </head>
 <body>
-    <div class="box">
-        <h1>Kapitel 2: Prompt</h1>
-        <textarea id="pText" readonly>HIER DEINEN PROMPT TEXT FÜR KAPITEL 2 REINKOPIEREN</textarea>
+    <div class="prompt-box">
+        <h1>Kapitel 1: Prompt</h1>
+        <textarea id="pText" readonly>Hallo AI, du bist weiterhin mein ehrlicher Business-Mentor.
+
+Ich habe aus den bisherigen Schritten bereits eine konkrete Business-Idee ausgewählt. Diese Idee soll jetzt nicht komplett neu erfunden werden, sondern mithilfe echter aktueller Recherche marktnäher, trendnäher und verkaufsstärker weitergedacht werden, ohne ihre Grundidee zu verlieren.
+
+WICHTIG:
+- Antworte auf Deutsch.
+- Nutze verpflichtend echte aktuelle Webrecherche.
+- Ziel ist NICHT, eine völlig neue Business-Idee zu bauen.
+- Ziel ist es, die bestehende Grundidee in 5 clevere, aktuelle und realistische Abwandlungen zu übersetzen.
+- Die Grundidee muss klar erkennbar bleiben.
+- Die Varianten sollen sich unterscheiden, aber nicht wie fünf völlig andere Businesses wirken.
+- Vermeide Hype, leere Motivationssprache und Business-Floskeln.
+- Formuliere klar, konkret und verständlich.
+- Schreibe so, dass auch Leser ohne Business-, Marketing- oder Plattformwissen alles direkt verstehen.
+
+SEHR WICHTIG:
+- Du MUSST zuerst recherchieren, bevor du die 5 Varianten ausgibst.
+- Du DARFST die Antwort nicht nur auf Basis deines allgemeinen Wissens oder plausibler Vermutungen erstellen.
+- Wenn du aktuelle Trends, Plattformbewegungen, Suchverhalten, Zielgruppeninteressen oder Marktchancen erwähnst, müssen diese auf echter aktueller Recherche beruhen.
+- Wenn du für eine Annahme keine belastbare aktuelle Grundlage findest, darfst du sie nicht als recherchierten Trend darstellen.
+- In diesem Fall musst du sie entweder weglassen oder klar als eigene Ableitung kennzeichnen.
+
+ZENTRALE DENKREGEL:
+Du sollst die Idee nicht austauschen, sondern schärfen.
+Die Grundidee bleibt gleich.
+Du veränderst nur den Winkel, die Zuspitzung, die Zielgruppe, das Angebotsformat, den Nutzen, die Verpackung oder die Vertriebslogik auf Basis echter aktueller Signale.
+
+WICHTIG:
+- Keine komplett neuen Branchen.
+- Keine wilden Richtungswechsel.
+- Keine unnötig kreativen Kunstnamen.
+- Keine abstrakten Kategorien.
+- Keine Ideen, die nur trendig klingen, aber nicht zum Ursprung passen.
+- Jede Abwandlung muss so konkret sein, dass man sich vorstellen kann, wie sie im echten Leben aussieht.
+- Trends dürfen die Idee verstärken, aber nicht kaputtmachen.
+- Nutze Trends nicht als Selbstzweck.
+- Wenn ein Trend zwar sichtbar ist, aber nicht sinnvoll zur Idee passt, dann verwirf ihn intern.
+
+RECHERCHE-PFLICHT:
+Bevor du die Varianten entwickelst, recherchiere aktiv nach aktuellen Signalen. Nutze dafür, wenn sinnvoll, mehrere Arten von Quellen, zum Beispiel:
+- Marktplätze oder Plattformen, auf denen solche Produkte verkauft werden
+- Suchverhalten oder Trenddaten
+- aktuelle Creator-, Community- oder Plattformbewegungen
+- Reddit, Foren, Pinterest, TikTok, Etsy, Amazon, YouTube oder ähnliche Umfelder
+- aktuelle Artikel, Trendberichte oder Marktbeobachtungen
+- Rezensionen, Kommentare oder sichtbare Nachfrage-Muster
+
+WICHTIG:
+- Recherchiere nicht nur nach allgemeinen Trendwörtern.
+- Prüfe möglichst:
+  - ob die Zielgruppe real sichtbar ist
+  - ob der Stil oder die Ästhetik aktuell gefragt ist
+  - ob die Idee an echte Plattformlogiken andocken kann
+  - ob es Such- oder Kaufintention gibt
+  - ob es saisonale oder kulturelle Anlässe gibt
+- Wenn möglich, nutze mehrere Quelltypen und nicht nur eine einzige Quelle.
+
+WAS DU MIT RECHERCHE PRÜFEN SOLLST:
+- Gibt es aktuell sichtbare Stil-, Themen- oder Zielgruppenbewegungen, die zur Idee passen?
+- Gibt es Plattformen, Marktplätze oder Suchumfelder, auf denen die Idee heute besser andocken könnte als in einer neutralen Basisversion?
+- Gibt es saisonale oder kulturelle Anlässe, die eine Variante attraktiver machen?
+- Gibt es Hinweise darauf, dass bestimmte Zuspitzungen derzeit eher Aufmerksamkeit, Suchintention oder Kaufbereitschaft erzeugen?
+- Gibt es aktuelle Nischenbewegungen oder Mikrotrends, die die Idee sinnvoll schärfen könnten?
+
+WICHTIG:
+- Nutze Recherche nur als Verstärker.
+- Die Idee soll nicht wie eine kurzfristige Trend-Kopie wirken.
+- Bevorzuge Trends oder Bewegungen, die die Grundidee glaubwürdiger, sichtbarer oder verkaufbarer machen.
+- Vermeide kurzlebige Hypes, wenn sie der Idee keinen echten Mehrwert geben.
+
+INTERNER ARBEITSMODUS:
+- Arbeite intern gründlich und vergleichend.
+- Recherchiere aktuelle Entwicklungen, Plattformdynamiken, Suchverhalten oder Zielgruppenbewegungen, soweit sinnvoll.
+- Prüfe intern:
+  - Passung zur Grundidee
+  - Passung zum Profil
+  - Realismus im Alltag
+  - Klarheit des Angebots
+  - Vertriebsnähe
+  - Startbarkeit als Sidebusiness
+  - innere Zugkraft
+- Zeige diese internen Zwischenschritte NICHT.
+- Gib nach außen nur das verdichtete Endergebnis aus.
+
+SEHR WICHTIGE AUSGABEREGEL:
+- Gib NUR die 5 finalen Abwandlungen aus.
+- Keine sichtbaren Stufen.
+- Keine internen Denkprozesse.
+- Keine Rohideen.
+- Keine Zwischenerklärungen darüber, wie du ausgewählt hast.
+- Starte direkt mit den 5 Varianten.
+- Nutze den Platz für klare, greifbare und gut erklärte Ergebnisse.
+
+FÜR JEDE DER 5 ABWANDLUNGEN SOLLST DU ANGEBEN:
+
+1. Platz 1 bis 5
+
+2. Klare Bezeichnung der Abwandlung
+
+3. Klartext-Erklärung in Alltagssprache:
+   - Worum geht es hier praktisch?
+   - Was wird konkret verkauft oder angeboten?
+   - Wie funktioniert diese Variante grob?
+
+4. Was an dieser Variante anders ist als an der ursprünglichen Idee:
+   - Was wurde hier geschärft, vereinfacht, modernisiert oder anders gedreht?
+
+5. Recherchierter Marktimpuls:
+   - Welcher aktuelle, real recherchierte Impuls steckt hier drin?
+   - Zum Beispiel:
+     - ein Stiltrend
+     - eine sichtbare Zielgruppenbewegung
+     - ein Plattformverhalten
+     - eine Suchintention
+     - ein saisonaler Anlass
+     - ein kultureller Reiz
+- Erkläre das in einfacher Sprache.
+- Erfinde nichts.
+- Wenn es eher eine kluge Ableitung als ein klarer Trend ist, schreibe das offen.
+
+6. Zielgruppe:
+   - Für wen ist diese Variante besonders passend?
+
+7. Konkretes Problem oder Wunsch:
+   - Was bedient diese Variante besonders gut?
+
+8. Warum diese Abwandlung für mein Profil interessant ist:
+   - Welche Stärken, Motive oder Rahmenbedingungen aus meinem Profil passen hier besonders gut?
+
+9. Warum diese Abwandlung marktnäher, klarer oder spannender sein könnte als die Ursprungsform:
+   - Was ist hier der Vorteil?
+
+10. Realistischer Vertriebsweg mit Hebel:
+   - Wo würde diese Variante heute realistisch zuerst sichtbar oder verkaufbar werden?
+   - Wie würden erste Käufer oder Interessenten darauf stoßen?
+   - Warum ist dieser Vertriebsweg für diese Variante sinnvoll?
+
+11. Größte Stärke dieser Variante
+
+12. Größter Haken oder größte Reibung
+
+13. Wie gut diese Variante als Sidebusiness startbar wirkt:
+   - niedrig, mittel oder hoch
+
+14. Wie hoch die innere Zugkraft für mein Profil wahrscheinlich ist:
+   - niedrig, mittel oder hoch
+
+WICHTIG FÜR DIE DARSTELLUNG:
+- Erkläre die Varianten so, als würdest du den Leser an die Hand nehmen.
+- Nicht nur Titel ausgeben, sondern wirklich verständlich machen.
+- Der Leser soll nach jeder Variante denken:
+  „Ah, jetzt verstehe ich, wie dieselbe Grundidee in einer aktuelleren oder marktnäheren Version aussehen kann.“
+- Keine Fachsprache ohne Erklärung.
+- Keine Business-Floskeln.
+- Keine künstlich dramatischen Namen.
+- Keine Trend-Begriffe ohne Einordnung.
+
+QUELLEN-REGEL:
+- Stütze jede Variante auf echte aktuelle Recherche.
+- Belege die wichtigsten aktuellen Aussagen mit Quellen.
+- Trenne klar zwischen:
+  1. recherchierter Marktbeobachtung
+  2. deiner eigenen kreativen Ableitung daraus
+- Wenn du aktuelle Entwicklungen, Plattformbewegungen, Suchtrends oder Marktbeobachtungen einfließen lässt, belege die wichtigsten Aussagen nachvollziehbar.
+- Erfinde keine Trends.
+- Wenn du etwas nur vermutest oder daraus ableitest, schreibe das ausdrücklich als Ableitung und nicht als belegte Tatsache.
+
+ABSCHLUSS:
+- Erkläre am Ende kurz, welche der 5 Abwandlungen aktuell die stärkste Weiterentwicklung der Grundidee ist und warum.
+- Gib noch keinen Umsetzungsplan, keinen Businessplan, kein Branding und keine nächsten operativen Schritte aus.
+- Stelle keine weiteren Fragen.
+- Öffne keine neue Schleife.
+- Biete nicht direkt den nächsten Schritt an.
+
+FORM DES LETZTEN ABSATZES:
+Der letzte Absatz soll klar sagen:
+1. Die 5 stärksten recherchierten Abwandlungen der gewählten Idee sind jetzt fertig.
+2. Sie dienen als Grundlage für den nächsten Schritt im Buch.
+3. Ich sollte das Ergebnis sichern, weil wir darauf später aufbauen.
+
+Hier ist die ausgewählte Idee:
+[HIER DIE GEWÄHLTE IDEE EINFÜGEN]</textarea>
+        
         <button class="copy-btn" id="btn" onclick="copy()">Prompt kopieren</button>
         <br>
-        <a href="../" class="back-link">← Zur Übersicht</a>
-        
-        <footer>
-            &copy; 2026 Christoph Gievers – Urheberrechtlich geschützt.
-        </footer>
+        <a href="../" class="back-link">← Zurück zur Übersicht</a>
     </div>
 
     <script>
@@ -35,8 +302,13 @@
             navigator.clipboard.writeText(t.value);
             var b = document.getElementById("btn");
             b.innerText = "Kopiert! ✅";
-            b.style.background = "#28a745";
-            setTimeout(() => { b.innerText = "Prompt kopieren"; b.style.background = "#007bff"; }, 2000);
+            b.style.background = "#10b981"; /* Success Green */
+            b.style.boxShadow = "0 10px 15px -3px rgba(16, 185, 129, 0.3)";
+            setTimeout(() => { 
+                b.innerText = "Prompt kopieren"; 
+                b.style.background = "#14b8a6"; /* Back to Teal */
+                b.style.boxShadow = "0 10px 15px -3px rgba(20, 184, 166, 0.3)";
+            }, 2000);
         }
     </script>
 </body>
