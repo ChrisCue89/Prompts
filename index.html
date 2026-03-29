@@ -5,38 +5,271 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buch-Extras | Christoph Gievers</title>
     <style>
-        body { font-family: -apple-system, system-ui, sans-serif; background: #f9f9fb; color: #1a1a1a; margin: 0; display: flex; justify-content: center; padding: 40px 20px; }
-        .container { width: 100%; max-width: 500px; text-align: center; background: white; padding: 40px 25px; border-radius: 24px; box-shadow: 0 12px 30px rgba(0,0,0,0.06); }
-        h1 { font-size: 1.8rem; margin-bottom: 8px; }
-        .subtitle { color: #666; margin-bottom: 35px; line-height: 1.5; font-size: 1.1rem; }
-        .nav-list { display: grid; gap: 15px; }
-        .btn { 
-            display: block; text-decoration: none; background: #007bff; color: white; padding: 18px; 
-            border-radius: 14px; font-weight: 600; font-size: 1rem; transition: transform 0.2s, background 0.2s;
-            box-shadow: 0 4px 10px rgba(0,123,255,0.15);
+        /* Modernes Farbset & Reset */
+        :root {
+            --bg-color: #f1f5f9;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-mute: #64748b;
+            --accent: #14b8a6; /* Teal/Cyan Akzent */
+            --accent-hover: #0d9488;
         }
-        .btn:active { transform: scale(0.97); background: #0056b3; }
-        footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee; font-size: 0.85rem; color: #888; line-height: 1.6; }
-        .copy-info { font-weight: bold; color: #444; display: block; margin-bottom: 4px; }
+
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
+            margin: 0; 
+            display: flex; 
+            justify-content: center; 
+            min-height: 100vh;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+        
+        /* Container mit weichem Schatten und Tiefe */
+        .hub-container { 
+            width: 100%; 
+            max-width: 480px; 
+            background: var(--card-bg); 
+            padding: 50px 35px; 
+            border-radius: 28px; 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Styling der Überschriften */
+        h1 { 
+            font-size: 2rem; 
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 8px; 
+            color: var(--text-main);
+            margin-top: 0;
+        }
+
+        .subtitle { 
+            color: var(--text-mute); 
+            font-size: 1.1rem; 
+            margin-bottom: 40px; 
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* Die neuen Navigations-Buttons */
+        .prompt-link { 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none; 
+            background: #fff; 
+            color: var(--text-main); 
+            padding: 20px 25px; 
+            margin-bottom: 16px; 
+            border-radius: 16px; 
+            font-weight: 600; 
+            font-size: 1.05rem;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        /* Hover-Effekt: Der Button hebt sich leicht ab */
+        .prompt-link:hover { 
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(20, 184, 166, 0.1), 0 4px 6px -2px rgba(20, 184, 166, 0.05);
+        }
+
+        /* Das kleine Pfeil-Icon rechts im Button (via CSS gezeichnet) */
+        .prompt-link::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-top: 2px solid var(--accent);
+            border-right: 2px solid var(--accent);
+            transform: rotate(45deg);
+            transition: transform 0.2s;
+        }
+
+        .prompt-link:hover::after {
+            transform: rotate(45deg) translate(2px, -2px);
+        }
+
+        /* Rechtlicher Hinweis / Footer */
+        footer { 
+            margin-top: 60px; 
+            padding-top: 25px;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.85rem; 
+            color: var(--text-mute); 
+            line-height: 1.7; 
+        }
+
+        .copyright-name {
+            display: block;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Buch-Extras & Prompts</h1>
-        <p class="subtitle">Wähle das Kapitel aus, um den Prompt direkt in deine Zwischenablage zu kopieren.</p>
+
+    <div class="hub-container">
+        <h1>Buch-Extras</h1>
+        <p class="subtitle">Wähle das passende Kapitel aus, um den dazugehörigen Prompt direkt zu kopieren.</p>
         
-        <div class="nav-list">
-            <a href="p1/" class="btn">Kapitel 1: Dein echtes Spiegelbild</a>
-            <a href="p2/" class="btn">Kapitel 2: Der passende Rahmen</a>
-            <a href="p3/" class="btn">Kapitel 3: Der echte Maschinenraum</a>
-            <a href="p4/" class="btn">Kapitel 4: Echte Marktreife</a>
-            <a href="p5/" class="btn">Kapitel 5: Dein 30-Tage-Startplan</a>
-        </div>
+        <a href="p1/" class="prompt-link"><span>Kapitel 1: Dein echtes Spiegelbild</span></a>
+        <a href="p2/" class="prompt-link"><span>Kapitel 2: Der passende Rahmen</span></a>
+        <a href="p3/" class="prompt-link"><span>Kapitel 3: Der echte Maschinenraum</span></a>
+        <a href="p4/" class="prompt-link"><span>Kapitel 4: Echte Marktreife</span></a>
+        <a href="p5/" class="prompt-link"><span>Kapitel 5: Dein 30-Tage-Startplan</span></a>
 
         <footer>
-            <span class="copy-info">&copy; 2026 Christoph Gievers</span>
+            <span class="copyright-name">&copy; 2026 Christoph Gievers</span>
             Alle Prompts sind urheberrechtlich geschützt. Die Nutzung für eigene Projekte ist ausdrücklich erlaubt. Die Vervielfältigung oder öffentliche Weitergabe der Texte außerhalb des Buches ist nicht gestattet.
         </footer>
     </div>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buch-Extras | Christoph Gievers</title>
+    <style>
+        /* Modernes Farbset & Reset */
+        :root {
+            --bg-color: #f1f5f9;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-mute: #64748b;
+            --accent: #14b8a6; /* Teal/Cyan Akzent */
+            --accent-hover: #0d9488;
+        }
+
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
+            margin: 0; 
+            display: flex; 
+            justify-content: center; 
+            min-height: 100vh;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+        
+        /* Container mit weichem Schatten und Tiefe */
+        .hub-container { 
+            width: 100%; 
+            max-width: 480px; 
+            background: var(--card-bg); 
+            padding: 50px 35px; 
+            border-radius: 28px; 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Styling der Überschriften */
+        h1 { 
+            font-size: 2rem; 
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 8px; 
+            color: var(--text-main);
+            margin-top: 0;
+        }
+
+        .subtitle { 
+            color: var(--text-mute); 
+            font-size: 1.1rem; 
+            margin-bottom: 40px; 
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* Die neuen Navigations-Buttons */
+        .prompt-link { 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none; 
+            background: #fff; 
+            color: var(--text-main); 
+            padding: 20px 25px; 
+            margin-bottom: 16px; 
+            border-radius: 16px; 
+            font-weight: 600; 
+            font-size: 1.05rem;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        /* Hover-Effekt: Der Button hebt sich leicht ab */
+        .prompt-link:hover { 
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(20, 184, 166, 0.1), 0 4px 6px -2px rgba(20, 184, 166, 0.05);
+        }
+
+        /* Das kleine Pfeil-Icon rechts im Button (via CSS gezeichnet) */
+        .prompt-link::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-top: 2px solid var(--accent);
+            border-right: 2px solid var(--accent);
+            transform: rotate(45deg);
+            transition: transform 0.2s;
+        }
+
+        .prompt-link:hover::after {
+            transform: rotate(45deg) translate(2px, -2px);
+        }
+
+        /* Rechtlicher Hinweis / Footer */
+        footer { 
+            margin-top: 60px; 
+            padding-top: 25px;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.85rem; 
+            color: var(--text-mute); 
+            line-height: 1.7; 
+        }
+
+        .copyright-name {
+            display: block;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hub-container">
+        <h1>Buch-Extras</h1>
+        <p class="subtitle">Wähle das passende Kapitel aus, um den dazugehörigen Prompt direkt zu kopieren.</p>
+        
+        <a href="p1/" class="prompt-link"><span>Kapitel 1: Dein echtes Spiegelbild</span></a>
+        <a href="p2/" class="prompt-link"><span>Kapitel 2: Der passende Rahmen</span></a>
+        <a href="p3/" class="prompt-link"><span>Kapitel 3: Der echte Maschinenraum</span></a>
+        <a href="p4/" class="prompt-link"><span>Kapitel 4: Echte Marktreife</span></a>
+        <a href="p5/" class="prompt-link"><span>Kapitel 5: Dein 30-Tage-Startplan</span></a>
+
+        <footer>
+            <span class="copyright-name">&copy; 2026 Christoph Gievers</span>
+            Alle Prompts sind urheberrechtlich geschützt. Die Nutzung für eigene Projekte ist ausdrücklich erlaubt. Die Vervielfältigung oder öffentliche Weitergabe der Texte außerhalb des Buches ist nicht gestattet.
+        </footer>
+    </div>
+
 </body>
 </html>
