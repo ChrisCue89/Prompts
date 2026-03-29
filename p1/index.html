@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dein Buch-Prompt</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: #f4f4f9; color: #333; }
+        .container { text-align: center; padding: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 90%; max-width: 400px; }
+        h1 { font-size: 1.2rem; margin-bottom: 20px; }
+        textarea { width: 100%; height: 100px; padding: 10px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 20px; font-size: 0.9rem; resize: none; background: #fafafa; }
+        button { background: #007bff; color: white; border: none; padding: 12px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; transition: background 0.3s; }
+        button:active { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kapitel 1: Dein Prompt</h1>
+        <textarea id="promptText" readonly>HIER DEINEN PROMPT-TEXT EINFÜGEN</textarea>
+        <button onclick="copyPrompt()" id="copyBtn">Prompt kopieren</button>
+    </div>
+
+    <script>
+        function copyPrompt() {
+            var copyText = document.getElementById("promptText");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // Für Mobilgeräte
+            navigator.clipboard.writeText(copyText.value);
+            
+            var btn = document.getElementById("copyBtn");
+            btn.innerText = "Kopiert! ✅";
+            btn.style.background = "#28a745";
+            setTimeout(() => { 
+                btn.innerText = "Prompt kopieren"; 
+                btn.style.background = "#007bff";
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
